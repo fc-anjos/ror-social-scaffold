@@ -28,3 +28,6 @@
 
 # Ignore tmuxinator
 .tmuxinator.yml
+
+# Ignore simplecov files
+coverage/*
