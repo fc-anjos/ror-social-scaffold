@@ -1,8 +1,8 @@
 class CreateFriendships < ActiveRecord::Migration[5.2]
   def change
     create_table :friendships do |t|
-      t.integer :requester_id, index: true, foreign_key: true
-      t.integer :receiver_id, index: true, foreign_key: true
+      t.index :requester
+      t.index :receiver
       t.boolean :confirmed, default: false
       t.timestamps
     end
