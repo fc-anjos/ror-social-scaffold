@@ -27,4 +27,11 @@ RSpec.describe Friendship, type: :model do
       expect(friendship2).not_to be_valid
     end
   end
+
+  context '::prevent_self_association' do
+    let!(:friendship) { build :friendship, requester: user, receiver: user }
+    it 'validates that a user cannot be friends with himself' do
+      expect(friendship).not_to be_valid
+    end
+  end
 end
