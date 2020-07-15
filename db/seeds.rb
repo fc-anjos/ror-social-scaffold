@@ -1,6 +1,6 @@
 require "faker"
 
-requester = User.create(
+User.create(
   {
     name: "julio",
     email: "julio@julio.com",
@@ -9,7 +9,7 @@ requester = User.create(
   }
 )
 
-receiver = User.create(
+User.create(
   {
     name: "felipe",
     email: "felipe@felipe.com",
@@ -17,10 +17,6 @@ receiver = User.create(
     password_confirmation: 123_456,
   }
 )
-
-Friendship.create(requester_id: requester.id, receiver_id: receiver.id)
-Friendship.create(requester_id: receiver.id, receiver_id: requester.id)
-Friendship.create(requester_id: requester.id, receiver_id: requester.id)
 
 # 10.times do
 #   User.create(
