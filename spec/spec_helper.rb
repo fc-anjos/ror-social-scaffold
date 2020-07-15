@@ -2,6 +2,7 @@ require 'simplecov'
 SimpleCov.start do
   add_filter 'config/'
   add_filter 'spec/'
+  add_filter 'app/helpers/application_helper.rb/'
 
   add_group 'Models', 'app/models'
   add_group 'Controllers', 'app/controllers'

@@ -4,7 +4,7 @@ RSpec.describe Friendship, type: :model do
   let(:user) { create :user }
   let(:friend) { create :user }
   let!(:friendship) do
-    create(:friendship, user_id: user.id, friend_id: friend.id)
+    create(:friendship, requester: user, receiver: friend, confirmed: true)
   end
 
   context '::reciprocate_friendship' do
@@ -17,6 +17,14 @@ RSpec.describe Friendship, type: :model do
     it 'removes user to friend friends' do
       friendship.destroy
       expect(friend.friends).not_to include(user)
+    end
+  end
+
+  context '::uniqueness_of_mirrored_pairs' do
+    let!(:friendship) { create :friendship, requester: user, receiver: friend }
+    let!(:friendship2) { build :friendship, requester: friend, receiver: user }
+    it 'validates that if a user has sent an invitation to other user, this last one cannot invite that same user' do
+      expect(friendship2).not_to be_valid
     end
   end
 end
