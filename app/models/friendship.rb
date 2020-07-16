@@ -11,14 +11,14 @@ class Friendship < ApplicationRecord
   private
 
   def uniqueness_of_mirrored_pairs
-    if self.class.where(requester_id: requester.id, receiver_id: receiver.id)
-        .or(self.class.where(requester_id: receiver.id, receiver_id: requester.id))
+    if self.class.where(requester: requester, receiver: receiver)
+        .or(self.class.where(requester: receiver, receiver: requester))
         .exists?
       errors.add(:base, 'This friendship exists')
     end
   end
 
   def prevent_self_association
-    errors.add(:base, 'Requester and receiver have to be different') if requester_id == receiver_id
+    errors.add(:base, 'Requester and receiver have to be different') if requester == receiver
   end
 end
