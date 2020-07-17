@@ -26,7 +26,7 @@ module UserHelper
         link_to(
           'Accept Friendship',
           friendship_path({ id: id, confirmed: true }),
-          method: :patch, class: class_html
+          method: :put, class: class_html
         )
 
       render html: "#{accept_friendship} | #{reject_friendship} ".html_safe
