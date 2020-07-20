@@ -3,7 +3,7 @@ module UserHelper
     return nil if user == current_user
 
     new_friendship_path =
-      friendships_path({ requester_id: current_user.id, receiver_id: user.id })
+      friendships_path({ user: current_user, friend: user })
     class_html = 'profile-link'
 
     if current_user.friends.include?(user)
@@ -45,13 +45,7 @@ module UserHelper
     end
   end
 
-  def find_friendship(user, return_id = false)
-    friendship_a =
-      Friendship.find_by_requester_id_and_receiver_id(current_user.id, user.id)
-    friendship_b =
-      Friendship.find_by_receiver_id_and_requester_id(current_user.id, user.id)
-
-    friendship = friendship_a || friendship_b
-    return_id ? friendship.id : friendship
+  def find_friendship(user)
+      [Friendship.find_by_user_id_and_friend_id(current_user.id, user.id), Friendship.find_by_friend_id_and_user_id(current_user.id, user.id)]
   end
 end

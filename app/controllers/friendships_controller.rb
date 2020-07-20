@@ -18,6 +18,9 @@ class FriendshipsController < ApplicationController
     redirect_to request.referrer
   end
 
+  def destroy_pending()
+
+
   private
 
   def friendship_params
@@ -27,4 +30,5 @@ class FriendshipsController < ApplicationController
   def set_friendship
     @friendship = Friendship.find(params[:id])
   end
+
 end
