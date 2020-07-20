@@ -2,8 +2,7 @@ class Friendship < ApplicationRecord
   belongs_to :user
   belongs_to :friend, class_name: 'User'
 
-  # validate :uniqueness_of_mirrored_pairs, on: :create
-  # validate :prevent_self_association
+  after_create :reciprocate_friendship
 
   scope :requested, -> { where(status: 'requested') }
   scope :received, -> { where(status: 'received') }
@@ -12,14 +11,25 @@ class Friendship < ApplicationRecord
   private
 
   def uniqueness_of_mirrored_pairs
-    if new_record? && self.class.where(requester: requester, receiver: receiver)
-        .or(self.class.where(requester: receiver, receiver: requester))
-        .exists?
+    if new_record? &&
+       self.class.where(requester: requester, receiver: receiver).or(
+         self.class.where(requester: receiver, receiver: requester)
+       )
+         .exists?
       errors.add(:base, 'This friendship exists')
     end
   end
 
   def prevent_self_association
-    errors.add(:base, 'Requester and receiver have to be different') if requester == receiver
+    if requester == receiver
+      errors.add(:base, 'Requester and receiver have to be different')
+    end
+  end
+
+  def reciprocate_friendship
+    new_friendship = Friendship.new({ user: friend, friend: user, status: 'received' })
+    unless Friendship.where({ user: friend, friend: user }).exists?
+      new_friendship.save
+    end
   end
 end

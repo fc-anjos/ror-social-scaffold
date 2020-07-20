@@ -36,8 +36,8 @@ received_friend = User.create(
   }
 )
 
-Friendship.create({ user: user, friend: true_friend, status: 'confirmed' })
-Friendship.create({ user: user, friend: requested_friend, status: 'requested' })
+# Friendship.create({ user: user, friend: true_friend, status: 'confirmed' })
+Friendship.create({ user: user, friend: requested_friend })
 Friendship.create({ user: user, friend: received_friend, status: 'received' })
 
 10.times do
