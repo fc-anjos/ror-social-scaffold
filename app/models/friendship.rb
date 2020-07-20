@@ -1,12 +1,13 @@
 class Friendship < ApplicationRecord
-  belongs_to :receiver, class_name: 'User'
-  belongs_to :requester, class_name: 'User'
+  belongs_to :user
+  belongs_to :friend, class_name: 'User'
 
-  validate :uniqueness_of_mirrored_pairs, on: :create
-  validate :prevent_self_association
+  # validate :uniqueness_of_mirrored_pairs, on: :create
+  # validate :prevent_self_association
 
-  scope :not_confirmed, -> { where(confirmed: false) }
-  scope :confirmed, -> { where(confirmed: true) }
+  scope :requested, -> { where(status: 'requested') }
+  scope :received, -> { where(status: 'received') }
+  scope :confirmed, -> { where(status: 'confirmed') }
 
   private
 
