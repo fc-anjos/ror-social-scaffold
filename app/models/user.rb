@@ -37,4 +37,9 @@ class User < ApplicationRecord
            class_name: 'User',
            through: :confirmed_friendships,
            source: :friend
+
+  def timeline_posts
+    ids = friends.pluck(:id) << id
+    Post.all.ordered_by_most_recent.where(user_id: ids).includes(:user)
+  end
 end

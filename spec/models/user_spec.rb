@@ -38,4 +38,21 @@ RSpec.describe User, type: :model do
       expect(friend.friends).to include(user)
     end
   end
+
+  context '#timeline_posts' do
+    let!(:friendship) { create :friendship, user: user, friend: friend }
+    let!(:post) { create :post, user: friend }
+    let!(:post) { create :post, user: user }
+
+    it 'timeline shows only current_user and friend posts' do
+      friendships_pair = Friendship.where(
+        "(user_id = #{user.id} AND friend_id = #{friend.id})
+      OR (user_id = #{friend.id} AND friend_id = #{user.id})"
+      )
+
+      friendships_pair.update_all(status: 'confirmed')
+      expect(user.timeline_posts).to include(post)
+      expect(user.timeline_posts).to include(post)
+    end
+  end
 end
