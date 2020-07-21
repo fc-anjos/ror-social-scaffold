@@ -18,23 +18,23 @@ requested_friend = User.create(
   }
 )
 
-true_friend = User.create(
-  {
-    name: "Real",
-    email: "so@real.com",
-    password: 123_456,
-    password_confirmation: 123_456,
-  }
-)
+# true_friend = User.create(
+#   {
+#     name: "Real",
+#     email: "so@real.com",
+#     password: 123_456,
+#     password_confirmation: 123_456,
+#   }
+# )
 
-received_friend = User.create(
-  {
-    name: "john",
-    email: "john@john.com",
-    password: 123_456,
-    password_confirmation: 123_456,
-  }
-)
+# received_friend = User.create(
+#   {
+#     name: "john",
+#     email: "john@john.com",
+#     password: 123_456,
+#     password_confirmation: 123_456,
+#   }
+# )
 
 # Friendship.create({ user: user, friend: true_friend, status: 'confirmed' })
 # Friendship.create({ user: user, friend: requested_friend, status: 'requested' })

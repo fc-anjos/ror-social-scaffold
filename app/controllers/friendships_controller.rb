@@ -1,10 +1,10 @@
 class FriendshipsController < ApplicationController
   before_action :set_friendship, only: %i[destroy update]
-  before_action :set_friendship_pair, only: %i[destroypair]
+  before_action :set_friendship_pair, only: %i[destroypair acceptpair]
 
   def create
     @friendship = Friendship.create(friendship_params)
-    byebug
+    # byebug
     @friendship.save
     redirect_to request.referrer
   end
@@ -15,8 +15,14 @@ class FriendshipsController < ApplicationController
   end
 
   def destroypair
-    byebug
+    # byebug
     @friendships_pair.destroy_all
+    redirect_to request.referrer
+  end
+
+  def acceptpair
+    # byebug
+    @friendships_pair.update_all(status: 'confirmed')
     redirect_to request.referrer
   end
 
@@ -24,9 +30,6 @@ class FriendshipsController < ApplicationController
     @friendship.destroy
     redirect_to request.referrer
   end
-
-  def destroy_pending()
-
 
   private
 

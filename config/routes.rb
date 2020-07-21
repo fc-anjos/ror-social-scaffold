@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'posts#index'
+  root "posts#index"
 
   devise_for :users
 
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   resources :friendships, only: %i[create destroy update]
 
-  delete 'friendships/destroypair/:id', to: 'friendships#destroypair'
+  delete "friendships/destroypair/:id", to: "friendships#destroypair"
+  patch "friendships/acceptpair/:id", to: "friendships#acceptpair"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
