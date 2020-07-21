@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '2.7.1'
 
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.12'
@@ -20,8 +20,10 @@ gem 'omniauth'
 gem 'omniauth-github'
 
 group :development, :test do
+  gem 'awesome_print', '~> 1.8'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails', '~> 6.0'
+  gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
 end
 

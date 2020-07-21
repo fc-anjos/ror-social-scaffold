@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    timeline_posts
   end
 
   def create
@@ -18,11 +17,6 @@ class PostsController < ApplicationController
   end
 
   private
-
-  def timeline_posts
-    ids = current_user.friends.pluck(:id) << current_user.id
-    @timeline_posts ||= Post.all.ordered_by_most_recent.where(user_id: ids).includes(:user)
-  end
 
   def post_params
     params.require(:post).permit(:content)
