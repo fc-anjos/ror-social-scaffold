@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :omniauthable,
          omniauth_providers: %i[github]
 
-  # validates :name, presence: true, length: { maximum: 20 }
+  validates :name, presence: true, length: { maximum: 20 }
 
   has_many :posts
   has_many :comments, dependent: :destroy
