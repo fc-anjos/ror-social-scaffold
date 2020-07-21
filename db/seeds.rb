@@ -36,20 +36,20 @@ received_friend = User.create(
   }
 )
 
-Friendship.create({ user: user, friend: true_friend, status: 'confirmed' })
-Friendship.create({ user: user, friend: requested_friend, status: 'requested' })
-Friendship.create({ user: user, friend: received_friend, status: 'received' })
+# Friendship.create({ user: user, friend: true_friend, status: 'confirmed' })
+# Friendship.create({ user: user, friend: requested_friend, status: 'requested' })
+# Friendship.create({ user: user, friend: received_friend, status: 'received' })
 
-10.times do
-  User.create(
-    {
-      name: Faker::Name.unique.name,
-      email: Faker::Internet.unique.email,
-      password: '123456',
-      password_confirmation: '123456'
-    }
-  )
-end
+# 10.times do
+#   User.create(
+#     {
+#       name: Faker::Name.unique.name,
+#       email: Faker::Internet.unique.email,
+#       password: '123456',
+#       password_confirmation: '123456'
+#     }
+#   )
+# end
 
 # User.all.each do |user|
 #   friendable = User.all.ids
