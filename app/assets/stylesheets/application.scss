@@ -1,2 +1,10 @@
+// example override bootswatch variables
+// $primary: #ffcf06;
+// $secondary: #ff0000;
+
+// end example override
+
+@import 'bootswatch/lux/variables';
 @import 'bootstrap';
+@import 'bootswatch/lux/bootswatch';
 @import 'custom';
