@@ -1,14 +1,20 @@
 /* slightly transparent fallback */
 .navbar {
-  background-color: rgba(255, 255, 255, 0.4);
   margin-bottom: 50px;
 }
 
+.form-control {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.blur {
+  background-color: rgba(255, 255, 255, 0.4);
+}
 /* if backdrop support: very transparent and blurred */
 @supports (
   (-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em))
 ) {
-  .navbar {
+  .blur {
     -webkit-backdrop-filter: blur(2em);
     backdrop-filter: blur(6em);
   }
@@ -32,4 +38,5 @@ body {
   top: 0;
   left: 0;
   // filter: blur(8px);
+
 }
