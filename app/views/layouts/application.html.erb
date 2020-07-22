@@ -8,35 +8,39 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <nav class="navbar navbar-light align-items-center p-2">
+      <%= link_to 'Stay in touch', root_path, class: 'navbar-brand' %>
+      <ul class="navbar-nav d-block flex-grow-1 d-flex flex-row ">
+        <li class="mr-1 d-inline nav-item">
+          <%= link_to 'Timeline', posts_path, class: 'nav-link' %>
+        </li>
+        <li class="mr-1 d-inline nav-item">
+          <%= link_to 'All users', users_path, class: 'nav-link' %>
+        </li>
+      </ul>
+      <% if current_user %>
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-outline-primary p-1 pl-2 pr-2" %>
+      <% else %>
+        <%= link_to 'Sign in', user_session_path, class: "btn btn-outline-primary p-1 pl-2 pr-2" %>
+      <% end %>
+    </nav>
 
-  <nav class="d-flex align-items-center p-2">
-    <%= link_to 'Stay in touch', root_path, class: 'navbar-brand' %>
-    <ul class="navbar-nav d-block flex-grow-1">
-      <li class="mr-1 d-inline">
-          <%= menu_link_to 'Timeline', posts_path %>
-      </li>
-      <li class="mr-1 d-inline">
-          <%= menu_link_to 'All users', users_path %>
-      </li>
-    </ul>
-    <% if current_user %>
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign in', user_session_path %>
-    <% end %>
-    <% if notice.present? %>
-      <div class="notice">
-        <p> <%= notice %> </p>
-      </div>
-    <% end %>
-    <% if alert.present? %>
-      <div class="alert">
-        <p> <%= alert %> </p>
-      </div>
-    <% end %>
-  </nav>
-    <main class="main">
-      <%= yield %>
-    </main>
-  </body>
+    <div class='container'>
+      <% if notice.present? %>
+        <div class="notice">
+          <p> <%= notice %> </p>
+        </div>
+      <% end %>
+
+      <% if alert.present? %>
+        <div class="alert">
+          <p> <%= alert %> </p>
+        </div>
+      <% end %>
+
+      <main class="main">
+        <%= yield %>
+      </main>
+    </div>
+ </body>
 </html>
