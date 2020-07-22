@@ -1,7 +1,23 @@
 class Friendship < ApplicationRecord
-  belongs_to :receiver, class_name: 'User'
-  belongs_to :requester, class_name: 'User'
+  belongs_to :user
+  belongs_to :friend, class_name: 'User'
 
-  scope :not_confirmed, -> { where(confirmed: false) }
-  scope :confirmed, -> { where(confirmed: true) }
+  validate :prevent_self_association
+
+  after_create :reciprocate_friendship
+
+  scope :requested, -> { where(status: 'requested') }
+  scope :received, -> { where(status: 'received') }
+  scope :confirmed, -> { where(status: 'confirmed') }
+
+  private
+
+  def reciprocate_friendship
+    new_friendship = Friendship.new({ user: friend, friend: user, status: 'received' })
+    new_friendship.save unless Friendship.where({ user: friend, friend: user }).exists?
+  end
+
+  def prevent_self_association
+    errors.add(:base, 'User and friend have to be different') if friend == user
+  end
 end

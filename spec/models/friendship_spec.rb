@@ -4,12 +4,12 @@ RSpec.describe Friendship, type: :model do
   let(:user) { create :user }
   let(:friend) { create :user }
   let!(:friendship) do
-    create(:friendship, user_id: user.id, friend_id: friend.id)
+    create(:friendship, user: user, friend: friend)
   end
 
   context '::reciprocate_friendship' do
     it 'appends user to friend friends' do
-      expect(friend.friends).to include(user)
+      expect(friend.received_friends).to include(user)
     end
   end
 
@@ -17,6 +17,13 @@ RSpec.describe Friendship, type: :model do
     it 'removes user to friend friends' do
       friendship.destroy
       expect(friend.friends).not_to include(user)
+    end
+  end
+
+  context '::prevent_self_association' do
+    let!(:friendship) { build :friendship, user: user, friend: user }
+    it 'validates that a user cannot be friends with himself' do
+      expect(friendship).not_to be_valid
     end
   end
 end
