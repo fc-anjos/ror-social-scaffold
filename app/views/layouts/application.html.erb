@@ -8,13 +8,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav class="nav">
-      <%= link_to 'Stay in touch', root_path %>
-      <div class="menu">
-        <div class="menu-item">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= link_to 'Stay in touch', root_path, class: 'navbar-brand' %>
+      <div class="navbar-var mr-auto">
+        <div class="nav-item">
           <%= menu_link_to 'Timeline', posts_path %>
         </div>
-        <div class="menu-item">
+        <div class="nav-item">
           <%= menu_link_to 'All users', users_path %>
         </div>
       </div>

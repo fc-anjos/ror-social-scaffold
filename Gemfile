@@ -18,6 +18,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'bootstrap', '~> 4.5'
 
 group :development, :test do
   gem 'awesome_print', '~> 1.8'
@@ -25,6 +26,8 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.0'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
+  gem 'guard', '~> 2.16', '>= 2.16.2'
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
 end
 
 group :test do
