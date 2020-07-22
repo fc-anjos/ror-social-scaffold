@@ -1,8 +1,6 @@
 module ApplicationHelper
   def menu_link_to(link_text, link_path)
-    content_tag(:a) do
-      link_to link_text, link_path
-    end
+    link_to link_text, link_path, class: "nav-link"
   end
 
   def like_or_dislike_btn(post)
