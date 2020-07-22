@@ -8,7 +8,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session['devise.github_data'] = request.env['omniauth.auth']
       redirect_to new_user_registration_url
     end
-    end
+  end
 
   def failure
     redirect_to root_path
