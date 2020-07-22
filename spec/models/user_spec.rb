@@ -19,20 +19,24 @@ RSpec.describe User, type: :model do
     let!(:friendship) { create :friendship, user: user, friend: friend }
 
     it 'Friend should be in friends' do
-      friendships_pair = Friendship.where(
-        "(user_id = #{user.id} AND friend_id = #{friend.id})
+      friendships_pair =
+        Friendship.where(
+          "(user_id = #{user.id} AND friend_id = #{friend
+            .id})
       OR (user_id = #{friend.id} AND friend_id = #{user.id})"
-      )
+        )
 
       friendships_pair.update_all(status: 'confirmed')
       expect(user.friends).to include(friend)
     end
 
     it 'User should be in friends' do
-      friendships_pair = Friendship.where(
-        "(user_id = #{user.id} AND friend_id = #{friend.id})
+      friendships_pair =
+        Friendship.where(
+          "(user_id = #{user.id} AND friend_id = #{friend
+            .id})
       OR (user_id = #{friend.id} AND friend_id = #{user.id})"
-      )
+        )
 
       friendships_pair.update_all(status: 'confirmed')
       expect(friend.friends).to include(user)
@@ -45,10 +49,12 @@ RSpec.describe User, type: :model do
     let!(:post) { create :post, user: user }
 
     it 'timeline shows only current_user and friend posts' do
-      friendships_pair = Friendship.where(
-        "(user_id = #{user.id} AND friend_id = #{friend.id})
+      friendships_pair =
+        Friendship.where(
+          "(user_id = #{user.id} AND friend_id = #{friend
+            .id})
       OR (user_id = #{friend.id} AND friend_id = #{user.id})"
-      )
+        )
 
       friendships_pair.update_all(status: 'confirmed')
       expect(user.timeline_posts).to include(post)

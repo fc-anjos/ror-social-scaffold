@@ -19,8 +19,7 @@ module UserHelper
         link_to(
           'Reject Friendship',
           "/friendships/destroypair/#{friendship.id}",
-          method: :delete,
-          class: class_html
+          method: :delete, class: class_html
         )
 
       accept_friendship =
@@ -35,8 +34,7 @@ module UserHelper
       render html: link_to(
         'Drop invitation',
         "/friendships/destroypair/#{friendship.id}",
-        method: :delete,
-        class: class_html
+        method: :delete, class: class_html
       )
     else
       render html: link_to(
@@ -50,14 +48,4 @@ module UserHelper
   def find_friendship(user)
     Friendship.find_by_user_id_and_friend_id(current_user.id, user.id)
   end
-
-  #   def find_friendship(user, return_id = false)
-  #     friendship_a =
-  #       Friendship.find_by_requester_id_and_receiver_id(current_user.id, user.id)
-  #     friendship_b =
-  #       Friendship.find_by_receiver_id_and_requester_id(current_user.id, user.id)
-
-  #     friendship = friendship_a || friendship_b
-  #     return_id ? friendship.id : friendship
-  #   end
 end
