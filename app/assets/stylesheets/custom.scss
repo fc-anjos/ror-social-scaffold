@@ -1,10 +1,29 @@
+/* slightly transparent fallback */
 .navbar {
-  background-color: rgba(250, 250, 250, 0.5);
+  background-color: rgba(255, 255, 255, 0.4);
   margin-bottom: 50px;
 }
 
+/* if backdrop support: very transparent and blurred */
+@supports (
+  (-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em))
+) {
+  .navbar {
+    -webkit-backdrop-filter: blur(2em);
+    backdrop-filter: blur(6em);
+  }
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #333333;
+}
+
+body {
+  color: #333333;
+}
+
 .bg-image {
-  background: url("https://3.bp.blogspot.com/-eVu6BEyZ5PA/WcwaJ216MRI/AAAAAAAAaBo/L8Y3J1tB2pw8W3GlBFdP6uAqY_1f7oD1wCLcBGAs/s1600/Sistine%2BChapel%2BGod%2527s%2BHand%2Bis%2BStill%2BReaching%2BOut.jpg");
+  background: url('https://3.bp.blogspot.com/-eVu6BEyZ5PA/WcwaJ216MRI/AAAAAAAAaBo/L8Y3J1tB2pw8W3GlBFdP6uAqY_1f7oD1wCLcBGAs/s1600/Sistine%2BChapel%2BGod%2527s%2BHand%2Bis%2BStill%2BReaching%2BOut.jpg');
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -12,4 +31,5 @@
   z-index: -999;
   top: 0;
   left: 0;
+  // filter: blur(8px);
 }
