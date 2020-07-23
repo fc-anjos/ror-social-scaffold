@@ -1,15 +1,65 @@
-<section class="users-section">
-  <ul class="users-list">
-    <% @users.each do |user| %>
-      <li>
-        Name: <%= user.name %>
-        <span class="profile-link">
-          <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
+<div class="container">
+  <section class="blur p-4 users-section mb-3">
+    <h3 class="mb-3">Requested Friends</h3>
+    <hr>
 
-          <%= friendship_interaction(user) %>
+    <ul class="users-list list-unstyled ">
+      <% current_user.requested_friends.each do |user| %>
+        <li class='flex-grow-1 d-flex flex-row mb-1'>
+          <span class="profile-link flex-grow-1">
+            <%= link_to user.name,  user_path(user), class: 'profile-link flex-grow-1' %>
+          </span>
+          <span><%= friendship_interaction(user) %></span>
+        </li>
+      <% end %>
+    </ul>
+  </section>
 
-        </span>
-      </li>
-    <% end %>
-  </ul>
-</section>
+  <section class="blur p-4 users-section mb-3">
+    <h3 class="mb-3">Received Invitations</h3>
+    <hr>
+
+    <ul class="users-list list-unstyled ">
+      <% current_user.received_friends.each do |user| %>
+        <li class='flex-grow-1 d-flex flex-row mb-1'>
+          <span class="profile-link flex-grow-1">
+            <%= link_to user.name,  user_path(user), class: 'profile-link flex-grow-1' %>
+          </span>
+          <span><%= friendship_interaction(user) %></span>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+
+  <section class="blur p-4 users-section mb-3">
+    <h3 class="mb-3">Invite Friends</h3>
+    <hr>
+
+    <ul class="users-list list-unstyled ">
+      <% current_user.friendable.each do |user| %>
+        <li class='flex-grow-1 d-flex flex-row mb-1'>
+          <span class="profile-link flex-grow-1">
+            <%= link_to user.name,  user_path(user), class: 'profile-link flex-grow-1' %>
+          </span>
+          <span><%= friendship_interaction(user) %></span>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+
+  <section class="blur p-4 users-section mb-3">
+    <h3 class="mb-3">Friends</h3>
+    <hr>
+
+    <ul class="users-list list-unstyled ">
+      <% current_user.friends.each do |user| %>
+        <li class='flex-grow-1 d-flex flex-row mb-1'>
+          <span class="profile-link flex-grow-1">
+            <%= link_to user.name,  user_path(user), class: 'profile-link flex-grow-1' %>
+          </span>
+          <span><%= friendship_interaction(user) %></span>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</div>
