@@ -10,10 +10,9 @@
 .blur {
   background-color: rgba(255, 255, 255, 0.4);
 }
+
 /* if backdrop support: very transparent and blurred */
-@supports (
-  (-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em))
-) {
+@supports (-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em)) {
   .blur {
     -webkit-backdrop-filter: blur(2em);
     backdrop-filter: blur(6em);
@@ -29,6 +28,12 @@ body {
 }
 
 .bg-image {
-  background: url('https://3.bp.blogspot.com/-eVu6BEyZ5PA/WcwaJ216MRI/AAAAAAAAaBo/L8Y3J1tB2pw8W3GlBFdP6uAqY_1f7oD1wCLcBGAs/s1600/Sistine%2BChapel%2BGod%2527s%2BHand%2Bis%2BStill%2BReaching%2BOut.jpg') no-repeat center center fixed;
+  background: url("https://3.bp.blogspot.com/-eVu6BEyZ5PA/WcwaJ216MRI/AAAAAAAAaBo/L8Y3J1tB2pw8W3GlBFdP6uAqY_1f7oD1wCLcBGAs/s1600/Sistine%2BChapel%2BGod%2527s%2BHand%2Bis%2BStill%2BReaching%2BOut.jpg");
   background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -999;
+  top: 0;
+  left: 0;
 }
