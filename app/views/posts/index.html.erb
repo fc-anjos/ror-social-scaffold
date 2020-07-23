@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col p-4 blur form-group m-auto">
+    <div class="col p-4 blur form-group ">
       <%= form_for(@post) do |form| %>
         <%= form.label :content %>
         <%= form.text_field :content, id: :post_content, placeholder: 'add new post', class: "blur form-control mb-3" %>
@@ -14,12 +14,14 @@
     </div>
   </div>
 
-  <div class="col p-4 blur mt-4 ml-auto mr-auto">
+  <div class="row">
+  <div class="col p-4 blur mt-4 ">
     <article class="timeline">
       <h3 class="mb-3"> Recent posts </h3>
-      <ul class="posts">
+      <ul class="posts p-0 list-unstyled">
         <%= render current_user.timeline_posts %>
       </ul>
     </article>
+  </div>
   </div>
 </div>
