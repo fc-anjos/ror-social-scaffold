@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
+  <body class="bg-image">
     <nav class="navbar blur navbar-light align-items-center p-2 pr-3 pl-3">
       <%= link_to 'Stay in touch', root_path, class: 'navbar-brand d-none d-md-block' %>
       <ul class="navbar-nav d-block flex-grow-1 d-flex flex-row ">
@@ -42,5 +42,5 @@
         <%= yield %>
       </main>
     </div>
- </body>
+  </body>
 </html>
