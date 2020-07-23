@@ -29,6 +29,22 @@ body {
 }
 
 .bg-image {
-  background: url('https://3.bp.blogspot.com/-eVu6BEyZ5PA/WcwaJ216MRI/AAAAAAAAaBo/L8Y3J1tB2pw8W3GlBFdP6uAqY_1f7oD1wCLcBGAs/s1600/Sistine%2BChapel%2BGod%2527s%2BHand%2Bis%2BStill%2BReaching%2BOut.jpg') no-repeat fixed;
+  background: url('https://3.bp.blogspot.com/-eVu6BEyZ5PA/WcwaJ216MRI/AAAAAAAAaBo/L8Y3J1tB2pw8W3GlBFdP6uAqY_1f7oD1wCLcBGAs/s1600/Sistine%2BChapel%2BGod%2527s%2BHand%2Bis%2BStill%2BReaching%2BOut.jpg')
+    no-repeat fixed;
   background-size: cover;
+}
+
+textarea.post-input {
+  height: 48px;
+  min-height: 3.3em;
+  // justify-self: end;
+  // padding: 0;
+  // margin: 0;
+  // height: 100%;
+  // align-self: end;
+}
+
+.post-submit {
+  height: 4em;
+  align-self: end;
 }
