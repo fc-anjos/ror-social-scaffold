@@ -1,46 +1,49 @@
-<section class="user-section">
-  <h2><%= "Name: #{@user.name}" %></h2>
+<div class="container">
+  <div class="row">
+      <div class="sticky-top d-flex flex-row align-items-center col-12 blur mb-3 p-4">
+        <h2 class="flex-grow-1 m-0"><%= "#{@user.name}" %> </h2>
+          <span class='profile-link m-0'>
+            <%= friendship_interaction(@user) %>
+          </span>
+      </div>
 
-  <div class='users-section'>
-    <span class='profile-link'>
-      <%= friendship_interaction(@user) %>
-    </span>
-  </div>
-
-  <div>
-    <h3>Friends</h3>
-    <% @user.friends.each do |confirmed_friend| %>
-      <ul>
-        <li>
-          <%= confirmed_friend.name %>
-          <%= friendship_interaction(confirmed_friend) %>
-        </li>
-      </ul>
-    <% end  %>
-  </div>
-
-  <% if current_user == @user %>
-    <div>
-      <h3>Pending Invitations</h3>
-      <% if current_user.received_friends.empty? %>
-        <p> No pending friendships request </p>
-      <% else %>
-        <% @user.received_friends.each do |pending_friend| %>
-          <ul>
-            <li>
-              <%= pending_friend.name %>
-              <%= friendship_interaction(pending_friend) %>
+      <div class="blur col-lg-4 mr-lg-3 mb-3 p-4 h-100">
+        <h3 class="mb-3">Friends</h3>
+        <hr>
+        <% @user.friends.each do |confirmed_friend| %>
+          <ul class="list-unstyled">
+            <li class="d-flex flex-row">
+              <span class="flex-grow-1"><%= link_to confirmed_friend.name,  user_path(confirmed_friend), class: 'profile-link flex-grow-1' %></span>
+              <span><%= friendship_interaction(confirmed_friend) %></span>
             </li>
           </ul>
-        <% end %>
-      <% end  %>
-    </div>
-  <% end %>
+        <% end  %>
+      </div>
 
-  <article class="timeline">
-    <h3>Recent posts:</h3>
-    <ul class="posts">
-      <%= render @posts %>
-    </ul>
-  </article>
-</section>
+      <%# <% if current_user == @user %1> %>
+      <%#   <div class="blur col-lg-4 mb-3 p-4"> %>
+      <%#     <h3 class="mb-3">Pending Invitations</h3> %>
+      <%#     <% if current_user.received_friends.empty? %1> %>
+      <%#       <p> No pending friendships request </p> %>
+      <%#     <% else %1> %>
+      <%#       <% @user.received_friends.each do |pending_friend| %1> %>
+      <%#         <ul> %>
+      <%#           <li> %>
+      <%#             <%= pending_friend.name %1> %>
+      <%#             <%= friendship_interaction(pending_friend) %1> %>
+      <%#           </li> %>
+      <%#         </ul> %>
+      <%#       <% end %1> %>
+      <%#     <% end  %1> %>
+      <%#   </div> %>
+      <%# <% end %1> %>
+
+      <article class="blur col p-4 timeline">
+        <h3 class="mb-3">Recent posts:</h3>
+        <hr>
+        <ul class="posts list-unstyled">
+          <%= render @posts %>
+        </ul>
+      </article>
+  </div>
+</div>
