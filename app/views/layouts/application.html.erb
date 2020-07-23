@@ -27,19 +27,19 @@
       <% end %>
     </nav>
 
-    <div class='container-fluid'>
       <% if notice.present? %>
-        <div class="notice">
+        <div class="notice position-absolute p-3 m-auto font-weight-bold">
           <p> <%= notice %> </p>
         </div>
       <% end %>
 
       <% if alert.present? %>
-        <div class="alert">
+        <div class="alert position-absolute p-3 m-auto font-weight-bold">
           <p> <%= alert %> </p>
         </div>
       <% end %>
 
+    <div class='container-fluid'>
       <main class="main">
         <%= yield %>
       </main>
