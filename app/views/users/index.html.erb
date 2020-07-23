@@ -5,10 +5,11 @@
 
     <ul class="users-list list-unstyled ">
       <% current_user.requested_friends.each do |user| %>
-        <li class='flex-grow-1 d-flex flex-row mb-1'>
-          <span class="profile-link flex-grow-1">
+        <li class=' d-flex flex-row mb-1'>
+          <span class="profile-link ">
             <%= link_to user.name,  user_path(user), class: 'profile-link flex-grow-1' %>
           </span>
+              <div class="line flex-grow-1"></div>
           <span><%= friendship_interaction(user) %></span>
         </li>
       <% end %>
@@ -21,10 +22,11 @@
 
     <ul class="users-list list-unstyled ">
       <% current_user.received_friends.each do |user| %>
-        <li class='flex-grow-1 d-flex flex-row mb-1'>
-          <span class="profile-link flex-grow-1">
+        <li class=' d-flex flex-row mb-1'>
+          <span class="profile-link ">
             <%= link_to user.name,  user_path(user), class: 'profile-link flex-grow-1' %>
           </span>
+              <div class="line flex-grow-1"></div>
           <span><%= friendship_interaction(user) %></span>
         </li>
       <% end %>
@@ -37,10 +39,11 @@
 
     <ul class="users-list list-unstyled ">
       <% current_user.friendable.each do |user| %>
-        <li class='flex-grow-1 d-flex flex-row mb-1'>
-          <span class="profile-link flex-grow-1">
-            <%= link_to user.name,  user_path(user), class: 'profile-link flex-grow-1' %>
+        <li class=' d-flex flex-row mb-1'>
+          <span class="profile-link">
+            <%= link_to user.name,  user_path(user), class: 'profile-link ' %>
           </span>
+              <div class="line flex-grow-1"></div>
           <span><%= friendship_interaction(user) %></span>
         </li>
       <% end %>
@@ -53,10 +56,11 @@
 
     <ul class="users-list list-unstyled ">
       <% current_user.friends.each do |user| %>
-        <li class='flex-grow-1 d-flex flex-row mb-1'>
-          <span class="profile-link flex-grow-1">
+        <li class=' d-flex flex-row mb-1'>
+          <span class="profile-link ">
             <%= link_to user.name,  user_path(user), class: 'profile-link flex-grow-1' %>
           </span>
+              <div class="line flex-grow-1"></div>
           <span><%= friendship_interaction(user) %></span>
         </li>
       <% end %>

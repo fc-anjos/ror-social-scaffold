@@ -3,8 +3,10 @@ $success: #949f67;
 $info: #75888d;
 $warning: #c99050;
 $muted: #aaa;
+$line: #ccc;
 
 @import 'bootswatch/lux/variables';
 @import 'bootstrap';
 @import 'bootswatch/lux/bootswatch';
+@import 'bootstrap/glyphicons';
 @import 'custom';

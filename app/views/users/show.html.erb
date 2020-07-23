@@ -7,13 +7,14 @@
           </span>
       </div>
 
-      <div class="blur col-lg-4 mr-lg-3 mb-3 p-4 h-100">
+      <div class="blur col-lg-4 mr-lg-3 mb-3 mb-lg-0 p-4">
         <h3 class="mb-3">Friends</h3>
         <hr>
         <% @user.friends.each do |confirmed_friend| %>
           <ul class="list-unstyled">
-            <li class="d-flex flex-row">
-              <span class="flex-grow-1"><%= link_to confirmed_friend.name,  user_path(confirmed_friend), class: 'profile-link flex-grow-1' %></span>
+            <li class="d-flex flex-row overflow-scroll h-100">
+              <span><%= link_to confirmed_friend.name,  user_path(confirmed_friend), class: 'flex-grow-1' %></span>
+              <div class="line flex-grow-1"></div>
               <span><%= friendship_interaction(confirmed_friend) %></span>
             </li>
           </ul>
@@ -38,10 +39,10 @@
       <%#   </div> %>
       <%# <% end %1> %>
 
-      <article class="blur col p-4 timeline">
+      <article class="blur col p-4 timeline ">
         <h3 class="mb-3">Recent posts:</h3>
         <hr>
-        <ul class="posts list-unstyled">
+        <ul class="posts list-unstyled overflow-scroll">
           <%= render @posts %>
         </ul>
       </article>
