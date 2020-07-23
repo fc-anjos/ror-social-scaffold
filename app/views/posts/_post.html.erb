@@ -26,8 +26,8 @@
 
     <%= form_for(post.comments.new, url: post_comments_path(post)) do |form| %>
       <div class="d-flex flex-row">
-        <%= form.text_field :content, id: :comment_content, placeholder: 'Add new Comment', class: "form-control mb-3 flex-grow-1 mr-2", style: 'height: 48px' %>
-        <%= form.submit 'Comment', class: 'btn btn-primary h-100 border-0', style: 'height: 48px'  %>
+        <%= form.text_area :content, id: :comment_content, placeholder: 'Add new Comment', class: "form-control flex-grow-1 mr-2 post-input" %>
+        <%= form.submit 'Comment', class: 'post-submit btn btn-primary h-100 border-0 post-input'%>
       </div>
     <% end %>
   </div>
