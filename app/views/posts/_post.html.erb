@@ -1,13 +1,15 @@
 <li class="post mb-4">
   <div>
     <div class='post-attribution' >
-      <%= link_to post.user.name, user_path(post.user), class: 'post-author' %>
+      <%= link_to post.user.name, user_path(post.user), class: 'post-author font-weight-bold' %>
+      <small class='post-date font-italic '> <%= post.created_at.strftime("%Y/%m/%d") %> </small>
     </div>
-    <div class='post-liking'>
-      <span class='post-date'> <%= post.created_at.strftime("%Y/%m/%d") %> </span>
-      <span class='post-date'> Likes <%= post.likes.count %> </span>
-      <span class='post-date'> Comments <%= post.comments.count %></span>
+    <div class='post-liking '>
+      <div class='d-inline-block post-date separator-right'> Likes <%= post.likes.count %> </div>
+      <div class='d-inline-block post-date separator-right'> Comments <%= post.comments.count %></div>
+<div class='d-inline-block'>
       <%= like_or_dislike_btn(post) %>
+</div>
     </div>
   </div>
   <p class="post-content">

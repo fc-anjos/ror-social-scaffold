@@ -50,3 +50,8 @@ textarea.post-input {
   height: 4em;
   align-self: end;
 }
+
+.post-liking div:not(:first-child) {
+  border-left: 1px solid $muted;
+  padding-left: 0.5em;
+}
