@@ -5,7 +5,7 @@
       <hr>
       <%= form_for(@post) do |form| %>
         <%= form.label :content %>
-        <%= form.text_area :content, id: :post_content, placeholder: 'add new post', class: "post-input blur form-control mb-3" %>
+        <%= form.text_area :content, id: :post_content, placeholder: 'Add new Post', class: "post-input blur form-control mb-3" %>
         <% if @post.errors.full_messages.any? %>
           <p class="errors">
             <%= "post could not be saved. #{@post.errors.full_messages.join('. ')}" %>
