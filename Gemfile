@@ -20,6 +20,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'bootstrap-glyphicons'
 
 group :development, :test do
   gem 'awesome_print', '~> 1.8'

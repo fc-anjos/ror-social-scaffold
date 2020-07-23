@@ -12,10 +12,9 @@
 .blur {
   background-color: rgba(255, 255, 255, 0.4);
 }
+
 /* if backdrop support: very transparent and blurred */
-@supports (
-  (-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em))
-) {
+@supports (-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em)) {
   .blur {
     -webkit-backdrop-filter: blur(2em);
     backdrop-filter: blur(6em);
@@ -31,14 +30,14 @@ body {
 }
 
 .bg-image {
-  background: url('https://3.bp.blogspot.com/-eVu6BEyZ5PA/WcwaJ216MRI/AAAAAAAAaBo/L8Y3J1tB2pw8W3GlBFdP6uAqY_1f7oD1wCLcBGAs/s1600/Sistine%2BChapel%2BGod%2527s%2BHand%2Bis%2BStill%2BReaching%2BOut.jpg')
-    no-repeat fixed;
+  background: url("https://3.bp.blogspot.com/-eVu6BEyZ5PA/WcwaJ216MRI/AAAAAAAAaBo/L8Y3J1tB2pw8W3GlBFdP6uAqY_1f7oD1wCLcBGAs/s1600/Sistine%2BChapel%2BGod%2527s%2BHand%2Bis%2BStill%2BReaching%2BOut.jpg") no-repeat fixed;
   background-size: cover;
 }
 
 textarea.post-input {
   height: 48px;
   min-height: 3.3em;
+
   // justify-self: end;
   // padding: 0;
   // margin: 0;
@@ -54,4 +53,25 @@ textarea.post-input {
 .post-liking div:not(:first-child) {
   border-left: 1px solid $muted;
   padding-left: 0.5em;
+}
+
+.overflow-scroll {
+  height: 60vh;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+.overflow-scroll::-webkit-scrollbar {
+  display: block;
+}
+
+.overflow-scroll::-webkit-scrollbar-corner {
+  display: none;
+}
+
+.line {
+  position:relative;
+  top: -9px;
+  border-bottom: 1px solid $line;
+  margin: 0 8px 0 8px;
 }
