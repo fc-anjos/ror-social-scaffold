@@ -1,4 +1,4 @@
-<li class="post">
+<li class="post mb-4">
   <div>
     <div class='post-attribution' >
       <%= link_to post.user.name, user_path(post.user), class: 'post-author' %>
@@ -25,8 +25,10 @@
     <% end %>
 
     <%= form_for(post.comments.new, url: post_comments_path(post)) do |form| %>
-      <%= form.text_field :content, id: :comment_content, class: 'form-control', placeholder: 'Add new Comment' %>
-      <%= form.submit 'Comment', class: 'btn btn-secondary' %>
+      <div class="d-flex flex-row">
+        <%= form.text_field :content, id: :comment_content, placeholder: 'Add new Comment', class: "form-control mb-3 flex-grow-1 mr-2", style: 'height: 48px' %>
+        <%= form.submit 'Comment', class: 'btn btn-primary h-100 border-0', style: 'height: 48px'  %>
+      </div>
     <% end %>
   </div>
 </li>
