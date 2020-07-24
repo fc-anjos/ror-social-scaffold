@@ -40,7 +40,7 @@ requested_friend = User.create(
 # Friendship.create({ user: user, friend: requested_friend, status: 'requested' })
 # Friendship.create({ user: user, friend: received_friend, status: 'received' })
 
-10.times do
+100.times do
   User.create(
     {
       name: Faker::Name.unique.name,
@@ -53,7 +53,7 @@ end
 
 User.all.each do |user|
   friendable = User.all.ids
-  5.times do
+  10.times do
     friend_id = friendable.delete(rand(0..User.all.length))
     status = %w[confirmed requested received].sample
     Friendship.create({ user_id: user.id, friend_id: friend_id, status: status })

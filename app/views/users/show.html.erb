@@ -1,69 +1,73 @@
 <div class="container">
   <div class="row">
-      <div class="sticky-top d-flex flex-row align-items-center col-12 blur mb-3 p-3 pl-4">
-        <h2 class="flex-grow-1 m-0"><%= "#{@user.name}" %> </h2>
+    <div class="col">
+      <div class="row">
+        <div class="sticky-top d-flex flex-row align-items-center col-12 blur mb-3 p-3 pl-4">
+          <h2 class="flex-grow-1 m-0"><%= "#{@user.name}" %> </h2>
           <span class='profile-link m-0'>
             <%= friendship_interaction(@user) %>
           </span>
+        </div>
       </div>
 
-      <div class="col-lg-4 mr-lg-3 mb-3 mb-lg-0 p-0 m-0">
+      <div class="row">
+        <div class=" box d-flex flex-column col-lg-4 mr-lg-3 mb-3 mb-lg-0 p-0 m-0">
 
-        <div class="mb-3 blur pt-3 pr-4 pl-4 pb-3">
-        <h3 class="mb-1 pt-0">Friends</h3>
-        <ul class="list-unstyled">
-        <% @user.friends.each do |confirmed_friend| %>
-            <li class="d-flex flex-row overflow-scroll h-100">
-              <span><%= link_to confirmed_friend.name,  user_path(confirmed_friend), class: 'flex-grow-1' %></span>
-              <div class="line flex-grow-1"></div>
-              <span><%= friendship_interaction(confirmed_friend) %></span>
-            </li>
-        <% end  %>
-        </ul>
-        </div>
-
-        <div class='mb-3 blur pt-3 pr-4 pl-4 pb-3'>
-          <h3 class="mb-1 pt-0">Received Invitations</h3>
-
-            <ul class="list-unstyled">
-          <% @user.received_friends.each do |received_friend| %>
-              <li class="d-flex flex-row overflow-scroll h-100">
-                <span><%= link_to received_friend.name,  user_path(received_friend), class: 'flex-grow-1' %></span>
-                <div class="line flex-grow-1"></div>
-                <span><%= friendship_interaction(received_friend) %></span>
-              </li>
-          <% end  %>
-
+          <div class="mb-3 blur pt-3 pr-4 pl-4 pb-5 divided-height">
+            <h3 class="mb-1 pt-0">Friends</h3>
+            <hr>
+            <ul class="list-unstyled overflow-scroll">
+              <% @user.friends.each do |confirmed_friend| %>
+                <li class="d-flex flex-row">
+                  <span><%= link_to confirmed_friend.name,  user_path(confirmed_friend), class: 'flex-grow-1' %></span>
+                  <div class="line flex-grow-1"></div>
+                  <span><%= friendship_interaction(confirmed_friend) %></span>
+                </li>
+              <% end  %>
             </ul>
+          </div>
+
+          <div class="mb-3 blur pt-3 pr-4 pl-4 pb-5 flex-grow-1 divided-height">
+            <h3 class="mb-1 pt-0">Requested Friends</h3>
+            <hr>
+            <ul class="list-unstyled overflow-scroll">
+              <% @user.requested_friends.each do |requested_friend| %>
+                <li class="d-flex flex-row">
+                  <span><%= link_to requested_friend.name,  user_path(requested_friend), class: 'flex-grow-1' %></span>
+                  <div class="line flex-grow-1"></div>
+                  <span><%= friendship_interaction(requested_friend) %></span>
+                </li>
+              <% end  %>
+            </ul>
+          </div>
+
+          <div class='mb-3 mb-lg-0 blur pt-3 pr-4 pl-4 pb-5 flex-grow-1 divided-height'>
+            <h3 class="mb-1 pt-0">Received Invitations</h3>
+            <hr>
+            <ul class="list-unstyled overflow-scroll">
+              <% @user.received_friends.each do |received_friend| %>
+                <li class="d-flex flex-row">
+                  <span><%= link_to received_friend.name,  user_path(received_friend), class: 'flex-grow-1' %></span>
+                  <div class="line flex-grow-1"></div>
+                  <span><%= friendship_interaction(received_friend) %></span>
+                </li>
+              <% end  %>
+            </ul>
+          </div>
+
+
         </div>
 
-
+        <div class="col blur p-4 box">
+          <article class="timeline article-height">
+              <h3 class="mb-3">Recent posts:</h3>
+              <hr>
+              <ul class="posts list-unstyled overflow-scroll article-ul">
+                  <%= render @posts %>
+                </ul>
+            </article>
+          </div>
       </div>
-
-      <%# <% if current_user == @user %1> %>
-      <%#   <div class="blur col-lg-4 mb-3 p-4"> %>
-      <%#     <h3 class="mb-3">Pending Invitations</h3> %>
-      <%#     <% if current_user.received_friends.empty? %1> %>
-      <%#       <p> No pending friendships request </p> %>
-      <%#     <% else %1> %>
-      <%#       <% @user.received_friends.each do |pending_friend| %1> %>
-      <%#         <ul> %>
-      <%#           <li> %>
-      <%#             <%= pending_friend.name %1> %>
-      <%#             <%= friendship_interaction(pending_friend) %1> %>
-      <%#           </li> %>
-      <%#         </ul> %>
-      <%#       <% end %1> %>
-      <%#     <% end  %1> %>
-      <%#   </div> %>
-      <%# <% end %1> %>
-
-      <article class="blur col p-4 timeline ">
-        <h3 class="mb-3">Recent posts:</h3>
-        <hr>
-        <ul class="posts list-unstyled overflow-scroll">
-          <%= render @posts %>
-        </ul>
-      </article>
+    </div>
   </div>
 </div>
