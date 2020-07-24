@@ -2,7 +2,7 @@
 
 .container-fluid,
 .container {
-  margin-top: 50px;
+  margin-top: 37px;
 }
 
 .form-control {
@@ -57,7 +57,6 @@ textarea.post-input {
 }
 
 .overflow-scroll {
-  height: 60vh;
   overflow: scroll;
   scrollbar-width: none;
 }
@@ -75,4 +74,21 @@ textarea.post-input {
   top: -9px;
   border-bottom: 1px solid $line;
   margin: 0 8px 0 8px;
+}
+
+.box {
+  height: 80vh;
+}
+
+.article-height {
+  height: 95%;
+}
+
+.article-ul {
+  height: 100%;
+}
+
+.divided-height {
+  max-height: (100%/3);
+  height: 100%;
 }
