@@ -13,46 +13,50 @@
       <div class="d-flex h-100 flex-column col-lg-4 mr-lg-3 mb-3 mb-lg-0 p-0 m-0">
         <div class="mb-3 blur pt-3 pr-4 pl-4 pb-5 flex-grow-1">
 
-          <h3 class="mb-1 pt-0">Friends</h3>
-          <hr>
-          <ul class="list-unstyled overflow-scroll h-100">
-            <% @user.friends.each do |confirmed_friend| %>
-              <li class="d-flex flex-row">
-                <span><%= link_to confirmed_friend.name,  user_path(confirmed_friend), class: 'flex-grow-1' %></span>
-                <div class="line flex-grow-1"></div>
-                <span><%= friendship_interaction(confirmed_friend) %></span>
-              </li>
-            <% end  %>
-          </ul>
+<%#           <h3 class="mb-1 pt-0">Friends</h3> %>
+<%#           <hr> %>
+<%#           <ul class="list-unstyled overflow-scroll h-100"> %>
+<%#             <% @user.friends.each do |confirmed_friend| %1> %>
+<%#               <li class="d-flex flex-row"> %>
+<%#                 <span><%= link_to confirmed_friend.name,  user_path(confirmed_friend), class: 'flex-grow-1' %1></span> %>
+<%#                 <div class="line flex-grow-1"></div> %>
+<%#                 <span><%= friendship_interaction(confirmed_friend) %1></span> %>
+<%#               </li> %>
+<%#             <% end  %1> %>
+<%#           </ul> %>
 
         </div>
 
         <% if @user == current_user %>
         <div class="mb-3 blur pt-3 pr-4 pl-4 pb-5 flex-grow-1">
-          <h3 class="mb-1 pt-0">Requested Friends</h3>
-          <hr>
-          <ul class="list-unstyled overflow-scroll">
-            <% @user.requested_friends.each do |requested_friend| %> <li class="d-flex flex-row">
-                <span><%= link_to requested_friend.name,  user_path(requested_friend), class: 'flex-grow-1' %></span>
-                <div class="line flex-grow-1"></div>
-                <span><%= friendship_interaction(requested_friend) %></span>
-              </li>
-            <% end  %>
-          </ul>
+
+<%#           <h3 class="mb-1 pt-0">Requested Friends</h3> %>
+<%#           <hr> %>
+<%#           <ul class="list-unstyled overflow-scroll"> %>
+<%#             <% @user.requested_friends.each do |requested_friend| %1> <li class="d-flex flex-row"> %>
+<%#                 <span><%= link_to requested_friend.name,  user_path(requested_friend), class: 'flex-grow-1' %1></span> %>
+<%#                 <div class="line flex-grow-1"></div> %>
+<%#                 <span><%= friendship_interaction(requested_friend) %1></span> %>
+<%#               </li> %>
+<%#             <% end  %1> %>
+<%#           </ul> %>
+
         </div>
 
         <div class='mb-3 mb-lg-0 blur pt-3 pr-4 pl-4 pb-5 flex-grow-1'>
-          <h3 class="mb-1 pt-0">Received Invitations</h3>
-          <hr>
-          <ul class="list-unstyled overflow-scroll">
-            <% @user.received_friends.each do |received_friend| %>
-              <li class="d-flex flex-row">
-                <span><%= link_to received_friend.name,  user_path(received_friend), class: 'flex-grow-1' %></span>
-                <div class="line flex-grow-1"></div>
-                <span><%= friendship_interaction(received_friend) %></span>
-              </li>
-            <% end  %>
-          </ul>
+
+<%#           <h3 class="mb-1 pt-0">Received Invitations</h3> %>
+<%#           <hr> %>
+<%#           <ul class="list-unstyled overflow-scroll"> %>
+<%#             <% @user.received_friends.each do |received_friend| %1> %>
+<%#               <li class="d-flex flex-row"> %>
+<%#                 <span><%= link_to received_friend.name,  user_path(received_friend), class: 'flex-grow-1' %1></span> %>
+<%#                 <div class="line flex-grow-1"></div> %>
+<%#                 <span><%= friendship_interaction(received_friend) %1></span> %>
+<%#               </li> %>
+<%#             <% end  %1> %>
+<%#           </ul> %>
+
         </div>
 
           <% end %>
@@ -60,10 +64,10 @@
       </div>
 
       <div class="col blur p-4 h-100">
-        <article class="timeline article-height">
-            <h3 class="mb-3">Recent posts:</h3>
+        <article class="timeline article-height d-flex flex-column">
+            <h3 class="m-0">Recent posts:</h3>
             <hr>
-            <ul class="h-100 posts list-unstyled overflow-scroll article-ul">
+            <ul class="flex-grow-1 posts list-unstyled overflow-scroll article-ul">
                 <%= render @posts %>
               </ul>
           </article>
