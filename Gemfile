@@ -30,11 +30,11 @@ group :development, :test do
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
+  gem 'faker', '~> 2.13'
 end
 
 group :test do
   gem 'capybara', '~> 3.33'
-  gem 'faker', '~> 2.13'
   gem 'simplecov', '~> 0.18.5', require: false
 end
 
