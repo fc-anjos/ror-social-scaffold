@@ -1,7 +1,6 @@
 <div class="container">
   <section class="blur p-4 users-section mb-3">
-    <h3 class="mb-3">Requested Friends</h3>
-    <hr>
+    <h3 class="line-muted m-0 pb-2 mb-2">Requested Friends</h3>
 
     <ul class="list-unstyled ">
       <% current_user.requested_friends.each do |user| %>
@@ -17,8 +16,7 @@
   </section>
 
   <section class="blur p-4 users-section mb-3">
-    <h3 class="mb-3">Received Invitations</h3>
-    <hr>
+    <h3 class="line-muted m-0 pb-2 mb-2">Received Invitations</h3>
 
     <ul class="list-unstyled ">
       <% current_user.received_friends.each do |user| %>
@@ -34,8 +32,7 @@
   </section>
 
   <section class="blur p-4 users-section mb-3">
-    <h3 class="mb-3">Invite Friends</h3>
-    <hr>
+    <h3 class="line-muted m-0 pb-2 mb-2">Invite Friends</h3>
 
     <ul class="list-unstyled ">
       <% current_user.friendable.each do |user| %>
@@ -51,8 +48,7 @@
   </section>
 
   <section class="blur p-4 users-section mb-3">
-    <h3 class="mb-3">Friends</h3>
-    <hr>
+    <h3 class="line-muted m-0 pb-2 mb-2">Friends</h3>
 
     <ul class="users-list list-unstyled ">
       <% current_user.friends.each do |user| %>
