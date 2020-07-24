@@ -19,7 +19,7 @@ class FriendshipsController < ApplicationController
   end
 
   def acceptpair
-    @friendships_pair.update_all(status: "confirmed")
+    @friendships_pair.update_all(status: 'confirmed')
     redirect_to request.referrer
   end
 
