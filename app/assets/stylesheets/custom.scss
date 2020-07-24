@@ -22,15 +22,16 @@
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: #333333;
+  color: #333;
 }
 
 body {
-  color: #333333;
+  color: #333;
 }
 
 .bg-image {
-  background: url('https://3.bp.blogspot.com/-eVu6BEyZ5PA/WcwaJ216MRI/AAAAAAAAaBo/L8Y3J1tB2pw8W3GlBFdP6uAqY_1f7oD1wCLcBGAs/s1600/Sistine%2BChapel%2BGod%2527s%2BHand%2Bis%2BStill%2BReaching%2BOut.jpg')
+  background:
+    url('https://3.bp.blogspot.com/-eVu6BEyZ5PA/WcwaJ216MRI/AAAAAAAAaBo/L8Y3J1tB2pw8W3GlBFdP6uAqY_1f7oD1wCLcBGAs/s1600/Sistine%2BChapel%2BGod%2527s%2BHand%2Bis%2BStill%2BReaching%2BOut.jpg')
     no-repeat fixed;
   background-size: cover;
 }
@@ -38,17 +39,11 @@ body {
 textarea.post-input {
   height: 48px;
   min-height: 3.3em;
-
-  // justify-self: end;
-  // padding: 0;
-  // margin: 0;
-  // height: 100%;
-  // align-self: end;
 }
 
 .post-submit {
   height: 4em;
-  align-self: end;
+  align-self: flex-end;
 }
 
 .post-liking div:not(:first-child) {
@@ -77,11 +72,11 @@ textarea.post-input {
 }
 
 .box {
-  height: 80vh;
+  height: 30vh;
 }
 
 .article-height {
-  height: 95%;
+  height: 100%;
 }
 
 .article-ul {
