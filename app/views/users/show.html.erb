@@ -9,9 +9,9 @@
   </div>
 
   <div class="row box">
-    <div class="d-flex flex-column col-lg-4 mb-3 mb-lg-0 p-0 h-100">
+    <div class="d-flex flex-column col-lg-4 mb-3 mb-lg-0 p-0 ">
 
-      <div class="d-flex flex-column mb-3 blur p-4 divided-height ">
+      <div class="d-flex flex-column blur p-4 <%= @user == current_user ? 'mb-3 divided-height' : 'h-100' %>">
         <h3>Friends</h3>
         <hr>
         <ul class="list-unstyled overflow-scroll m-0">
@@ -27,7 +27,7 @@
 
       <% if @user == current_user %>
 
-        <div class="d-flex flex-column mb-3 blur p-4 divided-height">
+        <div class="d-flex flex-column mb-3 blur p-4 divided-height ">
           <h3>Requested Friends</h3>
           <hr>
           <ul class="list-unstyled overflow-scroll m-0">
@@ -41,24 +41,24 @@
           </ul>
         </div>
 
-        <div class="d-flex flex-column blur p-4 divided-height">
+        <div class="d-flex flex-column blur p-4 divided-height ">
           <h3>Received Invitations</h3>
-          <hr>
-          <ul class="list-unstyled overflow-scroll m-0">
-            <% @user.received_friends.each do |received_friend| %>
-              <li class="d-flex flex-row">
-                <span><%= link_to received_friend.name,  user_path(received_friend) %></span>
-                <div class="line flex-grow-1"></div>
-                <span><%= friendship_interaction(received_friend) %></span>
-              </li>
-            <% end  %>
-          </ul>
+          <%# <hr> %>
+          <%# <ul class="list-unstyled overflow-scroll m-0"> %>
+            <%#   <% @user.received_friends.each do |received_friend| %1> %>
+            <%#     <li class="d-flex flex-row"> %>
+              <%#       <span><%= link_to received_friend.name,  user_path(received_friend) %1></span> %>
+              <%#       <div class="line flex-grow-1"></div> %>
+              <%#       <span><%= friendship_interaction(received_friend) %1></span> %>
+              <%#     </li> %>
+            <%#   <% end  %1> %>
+          <%# </ul> %>
         </div>
       <% end %>
     </div>
 
     <div class="col blur ml-lg-3 p-4 h-100">
-      <article class="timeline article-height h-100 d-flex flex-column">
+      <article class="article-height h-100 d-flex flex-column">
         <h3 class="m-0">Recent posts:</h3>
         <hr>
         <ul class="flex-grow-1 posts list-unstyled h-100 overflow-scroll article-ul m-0">
