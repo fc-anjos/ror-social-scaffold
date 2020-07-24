@@ -11,11 +11,12 @@
 
     <div class="row box">
       <div class="d-flex h-100 flex-column col-lg-4 mr-lg-3 mb-3 mb-lg-0 p-0 m-0">
-        <div class="mb-3 blur pt-3 pr-4 pl-4 pb-5 flex-grow-1">
+        <div class="d-flex flex-column mb-3 blur pt-3 pr-4 pl-4 pb-5 flex-grow-1">
 
-<%#           <h3 class="mb-1 pt-0">Friends</h3> %>
-<%#           <hr> %>
-<%#           <ul class="list-unstyled overflow-scroll h-100"> %>
+          <h3 class="mb-1 pt-0">Friends</h3>
+          <hr>
+
+<%#           <ul class="list-unstyled overflow-scroll flex-grow-1"> %>
 <%#             <% @user.friends.each do |confirmed_friend| %1> %>
 <%#               <li class="d-flex flex-row"> %>
 <%#                 <span><%= link_to confirmed_friend.name,  user_path(confirmed_friend), class: 'flex-grow-1' %1></span> %>
@@ -28,11 +29,12 @@
         </div>
 
         <% if @user == current_user %>
-        <div class="mb-3 blur pt-3 pr-4 pl-4 pb-5 flex-grow-1">
+        <div class="mb-3 blur pt-3 pr-4 pl-4 pb-5 flex-grow-1 d-flex flex-column">
 
-<%#           <h3 class="mb-1 pt-0">Requested Friends</h3> %>
-<%#           <hr> %>
-<%#           <ul class="list-unstyled overflow-scroll"> %>
+          <h3 class="mb-1 pt-0">Requested Friends</h3>
+          <hr>
+
+<%#           <ul class="flex-grow-1 list-unstyled overflow-scroll"> %>
 <%#             <% @user.requested_friends.each do |requested_friend| %1> <li class="d-flex flex-row"> %>
 <%#                 <span><%= link_to requested_friend.name,  user_path(requested_friend), class: 'flex-grow-1' %1></span> %>
 <%#                 <div class="line flex-grow-1"></div> %>
@@ -43,11 +45,12 @@
 
         </div>
 
-        <div class='mb-3 mb-lg-0 blur pt-3 pr-4 pl-4 pb-5 flex-grow-1'>
+        <div class='d-flex mb-3 mb-lg-0 blur pt-3 pr-4 pl-4 pb-5 flex-grow-1 flex-column'>
 
-<%#           <h3 class="mb-1 pt-0">Received Invitations</h3> %>
-<%#           <hr> %>
-<%#           <ul class="list-unstyled overflow-scroll"> %>
+          <h3 class="mb-1 pt-0">Received Invitations</h3>
+          <hr>
+
+<%#           <ul class="list-unstyled overflow-scroll flex-grow-1"> %>
 <%#             <% @user.received_friends.each do |received_friend| %1> %>
 <%#               <li class="d-flex flex-row"> %>
 <%#                 <span><%= link_to received_friend.name,  user_path(received_friend), class: 'flex-grow-1' %1></span> %>
