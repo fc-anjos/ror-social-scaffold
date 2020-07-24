@@ -3,11 +3,11 @@
     <h3 class="mb-3">Requested Friends</h3>
     <hr>
 
-    <ul class="users-list list-unstyled ">
+    <ul class="list-unstyled ">
       <% current_user.requested_friends.each do |user| %>
-        <li class=' d-flex flex-row mb-1'>
-          <span class="profile-link ">
-            <%= link_to user.name,  user_path(user), class: 'profile-link flex-grow-1' %>
+        <li class=' d-flex flex-row'>
+          <span>
+            <%= link_to user.name,  user_path(user) %>
           </span>
               <div class="line flex-grow-1"></div>
           <span><%= friendship_interaction(user) %></span>
@@ -20,11 +20,11 @@
     <h3 class="mb-3">Received Invitations</h3>
     <hr>
 
-    <ul class="users-list list-unstyled ">
+    <ul class="list-unstyled ">
       <% current_user.received_friends.each do |user| %>
-        <li class=' d-flex flex-row mb-1'>
-          <span class="profile-link ">
-            <%= link_to user.name,  user_path(user), class: 'profile-link flex-grow-1' %>
+        <li class=' d-flex flex-row'>
+          <span>
+            <%= link_to user.name,  user_path(user) %>
           </span>
               <div class="line flex-grow-1"></div>
           <span><%= friendship_interaction(user) %></span>
@@ -37,11 +37,11 @@
     <h3 class="mb-3">Invite Friends</h3>
     <hr>
 
-    <ul class="users-list list-unstyled ">
+    <ul class="list-unstyled ">
       <% current_user.friendable.each do |user| %>
-        <li class=' d-flex flex-row mb-1'>
-          <span class="profile-link">
-            <%= link_to user.name,  user_path(user), class: 'profile-link ' %>
+        <li class=' d-flex flex-row'>
+          <span>
+            <%= link_to user.name,  user_path(user) %>
           </span>
               <div class="line flex-grow-1"></div>
           <span><%= friendship_interaction(user) %></span>
