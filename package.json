@@ -3,8 +3,31 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
+    "hint": "^6.0.6",
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
+    "stylelint-csstree-validator": "^1.8.0",
     "stylelint-scss": "^3.17.2"
-  }
+  },
+  "description": "> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fc-anjos/ror-social-scaffold.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fc-anjos/ror-social-scaffold/issues"
+  },
+  "homepage": "https://github.com/fc-anjos/ror-social-scaffold#readme"
 }
