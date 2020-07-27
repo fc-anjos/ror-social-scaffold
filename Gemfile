@@ -21,12 +21,12 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'faker', '~> 2.13'
 
 group :development, :test do
   gem 'awesome_print', '~> 1.8'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails', '~> 6.0'
-  gem 'faker', '~> 2.13'
   gem 'guard', '~> 2.16', '>= 2.16.2'
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
   gem 'pry-rails', '~> 0.3.9'
