@@ -2,7 +2,9 @@ require 'rails_helper'
 RSpec.describe UserHelper, type: :helper do
   let(:current_user) { create :user }
   let(:other_user) { create :user }
-  let!(:friendship) { create :friendship, user: current_user, friend: other_user }
+  let!(:friendship) do
+    create :friendship, user: current_user, friend: other_user
+  end
 
   context '#find_friendships' do
     it 'Finds the correct friendship passing the friend' do
@@ -18,7 +20,9 @@ RSpec.describe UserHelper, type: :helper do
   end
 
   context 'Current user has received an invitation' do
-    let!(:friendship) { create :friendship, user: current_user, friend: other_user }
+    let!(:friendship) do
+      create :friendship, user: current_user, friend: other_user
+    end
     it 'Returns drop invitation message' do
       interaction = friendship_interaction(other_user)
       expect(interaction).to include('Drop invitation')
@@ -27,7 +31,9 @@ RSpec.describe UserHelper, type: :helper do
   end
 
   context 'Current user has sent an invitation' do
-    let!(:friendship) { create :friendship, user: other_user, friend: current_user }
+    let!(:friendship) do
+      create :friendship, user: other_user, friend: current_user
+    end
     it 'Returns Accpet invitation message' do
       interaction = friendship_interaction(other_user)
       expect(interaction).to include('Accept Friendship')
@@ -38,12 +44,17 @@ RSpec.describe UserHelper, type: :helper do
   end
 
   context 'Current user and friend are friends' do
-    let!(:friendship) { create :friendship, user: current_user, friend: other_user }
+    let!(:friendship) do
+      create :friendship, user: current_user, friend: other_user
+    end
     it 'Returns unfriend message' do
-      friendships_pair = Friendship.where(
-        "(user_id = #{current_user.id} AND friend_id = #{other_user.id})
-      OR (user_id = #{other_user.id} AND friend_id = #{current_user.id})"
-      )
+      friendships_pair =
+        Friendship.where(
+          "(user_id = #{current_user.id} AND friend_id = #{other_user
+            .id})
+      OR (user_id = #{other_user
+            .id} AND friend_id = #{current_user.id})"
+        )
 
       friendships_pair.update_all(status: 'confirmed')
 

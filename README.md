@@ -1,9 +1,12 @@
 # Scaffold for social media app with Ruby on Rails
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+> This repo includes code for the social media app Stay In Touch, developed as part of Microverse's Full Stack Development Program.
+
+
+### Check it online!
+[Live preview](https://calm-coast-20210.herokuapp.com/)
 
 ## Built With
-
 - Ruby v2.7.0
 - Ruby on Rails v5.2.4.1
 
