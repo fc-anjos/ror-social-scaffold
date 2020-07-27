@@ -3,9 +3,7 @@ require 'rails_helper'
 RSpec.describe Friendship, type: :model do
   let(:user) { create :user }
   let(:friend) { create :user }
-  let!(:friendship) do
-    create(:friendship, user: user, friend: friend)
-  end
+  let!(:friendship) { create(:friendship, user: user, friend: friend) }
 
   context '::reciprocate_friendship' do
     it 'appends user to friend friends' do

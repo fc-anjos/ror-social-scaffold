@@ -13,7 +13,8 @@ class Friendship < ApplicationRecord
   private
 
   def reciprocate_friendship
-    new_friendship = Friendship.new({ user: friend, friend: user, status: 'received' })
+    new_friendship =
+      Friendship.new({ user: friend, friend: user, status: 'received' })
     new_friendship.save unless Friendship.where({ user: friend, friend: user }).exists?
   end
 

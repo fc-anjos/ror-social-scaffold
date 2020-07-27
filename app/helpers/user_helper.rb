@@ -12,37 +12,35 @@ module UserHelper
       render html: link_to(
         'Unfriend',
         "/friendships/destroypair/#{friendship.id}",
-        method: :delete, class: class_html
+        method: :delete, class: "#{class_html} badge badge-secondary"
       )
     elsif current_user.received_friends.include?(user)
       reject_friendship =
         link_to(
-          'Reject Friendship',
+          'Reject',
           "/friendships/destroypair/#{friendship.id}",
-          method: :delete,
-          class: class_html
+          method: :delete, class: "#{class_html} badge badge-danger"
         )
 
       accept_friendship =
         link_to(
-          'Accept Friendship',
+          'Accept',
           "/friendships/acceptpair/#{friendship.id}",
-          method: :patch, class: class_html
+          method: :patch, class: "#{class_html} badge badge-success"
         )
 
-      render html: "#{accept_friendship} | #{reject_friendship} ".html_safe
+      render html: "<span>#{accept_friendship}</span> <span>#{reject_friendship}</span> ".html_safe
     elsif current_user.requested_friends.include?(user)
       render html: link_to(
         'Drop invitation',
         "/friendships/destroypair/#{friendship.id}",
-        method: :delete,
-        class: class_html
+        method: :delete, class: "#{class_html} badge badge-warning"
       )
     else
       render html: link_to(
-        'Invite friend',
+        'Invite',
         new_friendship_path,
-        method: :post, class: class_html
+        method: :post, class: "#{class_html} badge badge-info"
       )
     end
   end
@@ -50,14 +48,4 @@ module UserHelper
   def find_friendship(user)
     Friendship.find_by_user_id_and_friend_id(current_user.id, user.id)
   end
-
-  #   def find_friendship(user, return_id = false)
-  #     friendship_a =
-  #       Friendship.find_by_requester_id_and_receiver_id(current_user.id, user.id)
-  #     friendship_b =
-  #       Friendship.find_by_receiver_id_and_requester_id(current_user.id, user.id)
-
-  #     friendship = friendship_a || friendship_b
-  #     return_id ? friendship.id : friendship
-  #   end
 end
