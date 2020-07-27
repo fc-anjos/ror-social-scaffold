@@ -18,10 +18,10 @@ gem 'bootstrap'
 gem 'bootstrap-glyphicons'
 gem 'bootswatch'
 gem 'devise'
+gem 'faker', '~> 2.13'
 gem 'jquery-rails'
 gem 'omniauth'
 gem 'omniauth-github'
-gem 'faker', '~> 2.13'
 
 group :development, :test do
   gem 'awesome_print', '~> 1.8'
