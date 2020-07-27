@@ -1,4 +1,4 @@
-# Scaffold for social media app with Ruby on Rails
+# Stay In Touch - Social media app built with Ruby on Rails
 
 > This repo includes code for the social media app Stay In Touch, developed as part of Microverse's Full Stack Development Program.
 
