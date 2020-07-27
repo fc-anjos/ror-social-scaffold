@@ -1,43 +1,32 @@
-# Scaffold for social media app with Ruby on Rails
+# Stay In Touch - Social media app built with Ruby on Rails
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+> This repo includes code for the social media app Stay In Touch, developed as part of Microverse's Full Stack Development Program.
+
+
+![index screenshot](docs/screenshot.png)
+
+### Check it online!
+[Live preview](https://calm-coast-20210.herokuapp.com/)
 
 ## Built With
-
 - Ruby v2.7.0
-- Ruby on Rails v5.2.4
-
-## Live Demo
-
-TBA
-
+- Ruby on Rails v5.2.4.1
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running clone this repository to your
+computer.
 
 ### Prerequisites
 
-Ruby: 2.6.3
-Rails: 5.2.3
-Postgres: >=9.5
-
-### Setup
-
-Instal gems with:
-
-```
-bundle install
-```
-
-Setup database with:
-
+Ruby: 2.7.0
+Rails: 5.2.4.1
+Postgres: >=12.3
 ```
    rails db:create
    rails db:migrate
+   rails db:seed
 ```
-
-
 
 ### Usage
 
@@ -49,37 +38,32 @@ Start server with:
 
 Open `http://localhost:3000/` in your browser.
 
-### Run tests
+### Run tests from root directory
 
 ```
-    rpsec --format documentation
+    bundle exec rspec
 ```
-
-> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
-
-### Deployment
-
-TBA
 
 ## Authors
 
-TBA
+👤 **Julio Añoveros**
 
-## 🤝 Contributing
+- Github: [@jubaan](https://github.com/jubaan)
+- Twitter: [@AnoverosJulio](https://twitter.com/AnoverosJulio)
+- Linkedin: [linkedin](https://www.linkedin.com/in/julio-a%C3%B1overos-b987a8a/)
 
-Contributions, issues and feature requests are welcome!
+👤Felipe dos Anjos
 
-Feel free to check the [issues page](issues/).
+- Github: [@githubhandle](https://github.com/fc-anjos)
+- Linkedin: [linkedin](https://linkedin.com/in/fc-anjos)
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
+## 🤝 Contributing
 
-TBA
+Contributions, issues and feature requests are welcome!
 
-## 📝 License
-
-TBA
-
+Feel free to check the [issues
+page](https://www.github.com/fc-anjos/ror-social-scaffold/issues/).
