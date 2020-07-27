@@ -3,6 +3,8 @@
 > This repo includes code for the social media app Stay In Touch, developed as part of Microverse's Full Stack Development Program.
 
 
+![index screenshot](docs/screenshot.png)
+
 ### Check it online!
 [Live preview](https://calm-coast-20210.herokuapp.com/)
 
